@@ -1,22 +1,55 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(
+    MaterialApp(
+      title: 'FriendlyChat',
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('FriendlyChat'),
+        ),
+        body: _buildTextComposer(),
+      ),
+    ),
+  );
+}
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) { // Add this line.
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: RandomWords(),
-    );
-  }
+
+final _textController = TextEditingController();
+
+
+Widget _buildTextComposer() {
+  return Container(
+    margin: const EdgeInsets.symmetric(horizontal: 8.0),
+   child: Row(                
+      children: [              
+        Flexible(              
+          child: TextField(
+            controller: _textController,
+            onSubmitted: _handleSubmitted,
+            decoration:
+                const InputDecoration.collapsed(hintText: 'Send a message'),
+          ),
+        ),
+        Container(
+          margin: const EdgeInsets.symmetric(horizontal: 4.0),
+          child: IconButton(
+          icon: const Icon(Icons.send),
+          onPressed: () => _handleSubmitted(_textController.text)), 
+        ),                     
+      ],                       
+    ),         
+  );
+}
+
+void _handleSubmitted(String text) {
+  _textController.clear();
 }
 
 
 
-
-
+// Flutter dev part 1 to 2 Start 
 class RandomWords extends StatefulWidget {
   @override
   _RandomWordsState createState() => _RandomWordsState();
@@ -89,13 +122,13 @@ class _RandomWordsState extends State<RandomWords> {
         pair.asPascalCase,
         style: _biggerFont,
       ),
-      trailing: Icon(   // NEW from here... 
+      trailing: Icon(    
       alreadySaved ? Icons.favorite : Icons.favorite_border,
       color: alreadySaved ? Colors.red : null,
       semanticLabel: alreadySaved ? 'Remove from saved' : 'Save',
       
     ),
-    onTap: () {      // NEW lines from here...
+    onTap: () {       
       setState(() {
         if (alreadySaved) {
           _saved.remove(pair);
@@ -140,3 +173,5 @@ class _RandomWordsState extends State<RandomWords> {
     );
   }
 }
+
+// Flutter dev part 1 to 2 End 
