@@ -25,3 +25,5 @@ $ git config --global user.email mubashircheruvayoor@gmail.com
 ```bash
 open -a Simulator
 ```
+
+### Each Branch is upto date with each leason 
