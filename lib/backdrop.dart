@@ -76,6 +76,7 @@ class _BackdropState extends State<Backdrop>
     );
   }
 
+
   // TODO: Add override for didUpdateWidget (104)
 
   @override
