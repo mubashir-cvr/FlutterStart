@@ -85,6 +85,8 @@ class _BackdropState extends State<Backdrop>
     super.dispose();
   }
 
+  
+
   // TODO: Add functions to get and change front layer visibility (104)
 
   // TODO: Add BuildContext and BoxConstraints parameters to _buildStack (104)
