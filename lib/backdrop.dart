@@ -85,7 +85,7 @@ class _BackdropState extends State<Backdrop>
     super.dispose();
   }
 
-  
+
 
   // TODO: Add functions to get and change front layer visibility (104)
 
@@ -104,6 +104,7 @@ class _BackdropState extends State<Backdrop>
       ],
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
